@@ -4,8 +4,8 @@ defmodule FacebookMessenger.Phoenix.Mixfile do
   def project do
     [app: :phoenix_facebook_messenger,
      name: "PhoenixFacebookMessenger",
-     source_url: "https://github.com/oarrabi/phoenix_facebook_messenger",
-     version: "0.3.0",
+     source_url: "https://github.com/alehander42/phoenix_facebook_messenger",
+     version: "0.4.0",
      docs: [ extras: ["README.md"] ],
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
@@ -35,7 +35,7 @@ defmodule FacebookMessenger.Phoenix.Mixfile do
   defp deps do
     d =
     [{:phoenix, "~> 1.1"},
-     {:facebook_messenger, "~> 0.3.0"},
+     {:facebook_messenger, git: "https://github.com/alehander42/facebook_messenger.git"},
      {:inch_ex, only: :docs},
      {:ex_doc, "~> 0.7", only: :dev},
      {:earmark, "~> 0.1", only: :docs}]

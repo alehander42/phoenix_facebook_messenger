@@ -16,11 +16,10 @@ defmodule FacebookMessenger.Phoenix.Controller do
       @callback_handler __MODULE__
 
       def challenge(conn, params) do
-
         case check_challenge(params) do
           {:ok, challenge} ->
             inform_callback(:challenge_successfull, [params])
-            conn = resp(conn, 200, challenge)
+            conn = resp(conn, 200, "#{challenge}")
             respond.(conn)
           _ ->
             inform_callback(:challenge_failed, [params])
@@ -29,9 +28,10 @@ defmodule FacebookMessenger.Phoenix.Controller do
       end
 
       def webhook(conn, params) do
-        params
-        |> parse_message
-        |> inform_and_reply(conn)
+        challenge(conn, params)
+        # params
+        # |> parse_message
+        # |> inform_and_reply(conn)
       end
 
       def inform_and_reply({:ok, message}, conn) do
