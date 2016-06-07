@@ -28,10 +28,10 @@ defmodule FacebookMessenger.Phoenix.Controller do
       end
 
       def webhook(conn, params) do
-        challenge(conn, params)
-        # params
-        # |> parse_message
-        # |> inform_and_reply(conn)
+        # challenge(conn, params)
+        params
+        |> parse_message
+        |> inform_and_reply(conn)
       end
 
       def inform_and_reply({:ok, message}, conn) do
